@@ -1,0 +1,20 @@
+tag @a[scores={dice=1}] add dice_temp
+title @a title {"text":"👁 1點的老鼠請睜眼","color":"gold","bold":true} 
+title @a subtitle {"text":"請觀察其他玩家...","color":"yellow"}
+
+
+execute as @a[tag=dice_temp] run playsound minecraft:entity.villager.yes master @s ~ ~ ~ 1
+execute as @a[tag=dice_temp] run tp @s -10 -60 33
+
+scoreboard players set #observe_timer dummy 200
+bossbar set dice:observe value 200
+bossbar set dice:observe visible true
+bossbar set dice:observe players @a
+
+schedule clear dice:tick/tick_boss
+schedule function dice:tick/tick_boss 1t
+
+schedule clear dice:start/start/3
+schedule function dice:step1/3 140t
+schedule function dice:step1/return1 200t
+
