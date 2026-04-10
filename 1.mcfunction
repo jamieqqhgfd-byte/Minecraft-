@@ -1,17 +1,17 @@
-# 1️⃣ 清除舊身分
+
 
 
 
 tag @a remove thief
 tag @a remove villager
 
-# 2️⃣ 隨機選一位小偷
+
 tag @r add thief
 
-# 3️⃣ 其他人是平民
+
 tag @a[tag=!thief] add villager
 
-# 4️⃣ 私訊各自的身分
+
 
 execute as @a[tag=thief] run title @s subtitle {"text":"躲到最後:)","color":"gray"}
 execute as @a[tag=thief] run playsound minecraft:entity.ender_dragon.growl master @s ~ ~ ~ 1 1
